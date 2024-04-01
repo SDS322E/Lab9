@@ -1,0 +1,110 @@
+---
+title: "Lab 9"
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,  
+                      warning = FALSE, message = FALSE, 
+                      fig.align = "center",
+                      R.options = list(max.print=100))
+
+# Edit the file starting below
+```
+
+### Enter the names of the group members here:
+
+**This assignment is due by the end of the day. Only one student in the group submits a pdf file on Gradescope.**
+
+*For all questions, include the R commands/functions that you used to find your answer (show R chunk). Answers without supporting code will not receive credit. Write full sentences to describe your findings.*
+
+Let's load the appropriate packages for today:
+
+```{r, warning=FALSE}
+library(tidyverse)
+```
+
+The dataset for this lab contains information about the chances of admissions into graduate school:
+
+```{r}
+# Upload data from GitHub
+admissions <- read_csv("https://raw.githubusercontent.com/laylaguyot/datasets/main//Admission_Predict.csv") |>
+  # Rename variables for easier manipulation 
+  rename(GRE_Score = `GRE Score`, TOEFL_Score = `TOEFL Score`,
+         University_Rating = `University Rating`, Admission_Chance = `Chance of Admit`)
+
+# Look at a sample of this data
+admissions |>
+  sample_n(size = 10)
+```
+
+This dataset contains the following variables: GRE Scores (out of 340), TOEFL Scores (out of 120), 
+University Rating (out of 5), Statement of Purpose (`SOP`) and Letter of Recommendation (`LOR`) Strength (out of 5), Undergraduate GPA (out of 10), Research Experience (either 0 or 1), Chance of Admission (ranging from 0 to 1).
+
+The goal of the lab is to make predictions for graduate admission based on other features of a student's application.
+
+------------------------------------------------------------------------
+
+### Question 1: (2 pts)
+
+Pick one variable to predict a student's `Admission_Chance`. What potential relationship between this variable and a student's `Admission_Chance` do you anticipate? Answer that question before exploring the data!
+
+**Your answer goes here. Write sentences in bold.**
+
+------------------------------------------------------------------------
+
+### Question 2: (4 pts)
+
+Visualize the relationship between the predictor you chose in the previous question and the response variable. Does your visualization match the relationship that you had anticipated?
+
+```{r}
+# your code goes below (make sure to edit comment)
+
+```
+
+**Your answer goes here. Write sentences in bold.**
+
+------------------------------------------------------------------------
+
+### Question 3: (4 pts)
+
+Fit a linear regression model to predict a student's `Admission_Chance` based on the predictor you chose in the first question. Write the expression of the linear model and report the performance of this model.
+
+```{r}
+# your code goes below (make sure to edit comment)
+
+```
+
+**Your answer goes here. Write sentences in bold.**
+
+------------------------------------------------------------------------
+
+### Question 4: (4 pts)
+
+Now choose two other predictors to estimate a student's `Admission_Chance`. Visualize the relationship between each predictor you just chose and the response variable. Does there appear to be a relationship between each predictor and the response variable?
+
+```{r}
+# your code goes below (make sure to edit comment)
+
+```
+
+**Your answer goes here. Write sentences in bold.**
+
+------------------------------------------------------------------------
+
+### Question 5: (4 pts)
+
+Fit a linear regression model to predict a student's `Admission_Chance` based on the two predictors you chose in the previous question. Is this model better than the one with one predictor? Why or why not?
+
+```{r}
+# your code goes below (make sure to edit comment)
+
+```
+
+**Your answer goes here. Write sentences in bold.**
+
+------------------------------------------------------------------------
+
+### Formatting: (2 pts)
+
+Comment your code, write full sentences, and knit your file!
